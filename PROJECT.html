@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="DOCX Editor 1.0.0.0 (Windows)"/>
+	<meta name="created" content="2026-09-28T20:11:54.319000000"/>
+	<meta name="changed" content="2026-09-28T20:13:38.587000000"/>
+</head>
+<body lang="en-IN" dir="ltr"><p style="line-height: 110%; text-indent: -0.02cm; margin-left: 0.02cm; margin-bottom: 2.6cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Script-Controlled
+ACL – Restrict Record Access Based on Field Value</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Team
+ID:             SWTID-2026-2819</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Team
+Size:         4</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Team
+Leader:     AKSHAYA K</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Team
+member:   ABINAYA E</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Team
+member:   ANUSHIYA K</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<font face="Arial, serif"><font size="5" style="font-size: 19pt"><b>Team
+member:   ARULJOTHI R</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 5.51cm; margin-bottom: 0.01cm">
+<br/>
+<br/>
+
+</p>
+<ul>
+	<li><p style="margin-bottom: 0.06cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Script-Controlled
+	ACL – Restrict Record Access Based on Field Value </b></font></font><font face="Arial, serif"><font size="3" style="font-size: 12pt"><b>●
+	</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Description
+	:</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.05cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">This
+	lab demonstrates how to implement a </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>script-controlled
+	Access Control List (ACL)</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	to restrict users from viewing records unless they meet specific
+	conditions. In this scenario, only users belonging to the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>EEE
+	branch</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	are allowed to view records where the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Branch
+	field is set to EEE</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">,
+	while administrators retain full access.</font></font></p></li>
+	<li><p style="margin-bottom: 0.06cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Timer
+	:</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.05cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">3
+	hrs</font></font></p></li>
+	<li><p style="margin-bottom: 0.06cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Milestone-1
+	Creation of Users and Roles </b></font></font><font face="Arial, serif"><font size="3" style="font-size: 12pt"><b>●
+	</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>User
+	Creation:</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.05cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Log
+	in</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	to the ServiceNow instance with </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>admin
+	access</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.</font></font></p></li>
+	<li><p style="margin-bottom: 0.06cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Create
+	a test user:</b></font></font></p></li>
+</ul>
+<p style="text-indent: -0.02cm; margin-left: 2.35cm; margin-right: 10.95cm; margin-bottom: 0.06cm">
+○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Navigate
+to </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>User
+Administration → Users</b></font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 2.35cm; margin-bottom: 0.05cm">
+○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>New</b></font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 2.35cm; margin-bottom: 0.05cm">
+○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>User
+ID</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+EEE User</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 2.35cm; margin-right: 10.95cm; margin-bottom: 0.06cm">
+○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>First
+name</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+EEE</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 2.35cm; margin-right: 10.95cm; margin-bottom: 0.06cm">
+○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Last
+name</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+User</font></font></p>
+<p style="margin-left: 2.33cm; margin-bottom: 0.06cm">○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Email</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+</font></font><font color="#1155cc"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><u>eeeuser@gmail.com</u></font></font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 2.35cm; margin-bottom: 0.05cm">
+○ <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Save
+the record</font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 0.02cm; margin-bottom: 0.44cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Role
+Creation</b></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Navigate
+	to </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>User
+	Administration → Roles</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>New</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Name</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+	Enter role name as bb1</font></font></p></li>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Description</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">:
+	Brief role purpose</font></font></p></li>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Submit</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Create
+	other roles also like</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>
+	bb2,bb3,bb4.(follow the same procedure)</b></font></font></p></li>
+	<li><p style="margin-bottom: 0.07cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Assign
+	all the roles to the EEE User</font></font></p></li>
+</ul>
+<ol>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm; page-break-before: always">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Submit</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Add
+	the following fields to the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>u_institution_details</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	table:</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.05cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Student
+Roll Number</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">–
+Auto Number</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Student
+Name</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+– Reference- User</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Faculty
+Name</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+– Reference- User</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Branch</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+– Choice (ECE, EEE, CSE)</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Email</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">–
+String</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.05cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Phone
+Number</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">–
+String</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Description</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">–
+Multi String</font></font></p>
+<ol start="3">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 1.36cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Save
+	the Table</font></font></p></li>
+</ol>
+<p style="line-height: 110%; text-indent: -0.99cm; margin-left: 1.28cm; margin-right: 15.02cm; margin-bottom: 0.06cm">
+<font face="Arial, serif"><font size="3" style="font-size: 12pt">1.	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Create
+multiple records in the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Student
+Records</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+table with different branch values (ECE, EEE, CSE).</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 0.02cm; margin-bottom: 0.46cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Creation
+of Access Control Lists(Read ACL)</b></font></font></p>
+<ol>
+	<li><p style="margin-bottom: 0.05cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">In
+	the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Application
+	Navigator</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">,
+	search for </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>System
+	Security → Access Control (ACL)</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">.</font></font></p></li>
+	<li><p style="margin-bottom: 0.04cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Elevate
+	“Security_admin” role</font></font></p></li>
+	<li><p style="margin-bottom: 0.04cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>New</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	to create a new ACL.</font></font></p></li>
+	<li><p style="margin-bottom: 0.04cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Enter
+	the following details:</font></font></p></li>
+</ol>
+<p style="margin-bottom: 0.04cm"><font size="3" style="font-size: 12pt">	</font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Type:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+record</font></font></p>
+<p style="margin-bottom: 0.05cm"><font size="3" style="font-size: 12pt">	</font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Operation:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+read</font></font></p>
+<p style="margin-bottom: 0.04cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Name:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+u_institution_details</font></font></p>
+<p style="margin-bottom: 0.05cm"><font size="3" style="font-size: 12pt">	</font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Active:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+true</font></font></p>
+<p style="margin-bottom: 0.05cm"><font size="3" style="font-size: 12pt">	</font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Advanced:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+true</font></font></p>
+<ol start="5">
+	<li><p style="margin-bottom: 0.04cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">In
+	the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Requires
+	role</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	related list, add: </font></font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bb1
+	(custom role)</font></font></p></li>
+	<li><p style="margin-bottom: 0.04cm"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Add
+	Data condition as </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Branch
+	is EEE</b></font></font></p></li>
+</ol>
+<p style="margin-bottom: 0.47cm"><font size="3" style="font-size: 12pt">	</font><font face="Arial, serif"><font size="3" style="font-size: 12pt">1.	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">In
+the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Script</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+field, add the following script:</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: 1.29cm; margin-bottom: 0.46cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">(function
+() {</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-right: 19.67cm; margin-bottom: 0.04cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Allow admin users full access     if (gs.hasRole('admin')) {        
+return true;</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-bottom: 0.04cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-bottom: 0.04cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Allow only EEE branch users to see EEE records</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-right: 20.09cm; margin-bottom: 0.04cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">if
+(gs.hasRole('bb1')){         return true;</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-bottom: 0.04cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">}</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-bottom: 0.04cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">//
+Deny access for all others</font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-right: 21.42cm; margin-bottom: 0.46cm">
+    <font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">return
+false; })();</font></font></p>
+<p style="margin-bottom: 0.04cm"><font size="3" style="font-size: 12pt">	</font><font face="Arial, serif"><font size="3" style="font-size: 12pt">2.	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Submit</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+to save the ACL.</font></font></p>
+<ol>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Impersonate
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>EEE
+	users</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	and open the Student Records list.</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Copy
+	the table name u_institution_details.list/LIST and paste in the All
+	menu.</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.58cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Impersonate
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Admin
+	</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	and open the Student Records list.</font></font></p></li>
+</ol>
+<p style="text-indent: -0.02cm; margin-left: 0.02cm; margin-bottom: 0.46cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 13pt"><b>Verify
+:</b></font></font></p>
+<ul>
+	<li><p style="line-height: 110%; margin-right: 7.91cm; margin-bottom: 1.47cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">User
+	with </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>bb1
+	role</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	can view </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>only
+	EEE branch records</b></font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 7.91cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">User
+	without the role cannot view any records</font></font></p></li>
+</ul>
+<h1 style="text-indent: -0.02cm; margin-left: -0.01cm; margin-top: 0cm; margin-bottom: 0.49cm; page-break-before: always">
+Creation of Access Control Lists(Create ACL)</h1>
+<ol>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>New</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	to create a new ACL(Create)</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Enter
+	the following details: </font></font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Type:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	record</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.05cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Operation:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+create</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Name:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+u_institution_details</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.05cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Active:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+true</font></font></p>
+<ol start="3">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">In
+	the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Requires
+	role</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	related list, add:</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bb2
+(custom role)</font></font></p>
+<ol start="4">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">No
+	need to add any Data condition</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 1.52cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Save
+	the ACL Record </font></font>
+	</p></li>
+</ol>
+<p style="text-indent: -0.02cm; margin-left: 0.55cm; margin-bottom: 0.46cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 13pt"><b>Verify
+:</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.89cm; margin-left: 1.8cm; margin-right: 14.69cm; margin-bottom: 0.05cm">
+●<font face="Arial, serif"><font size="3" style="font-size: 12pt">	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">User
+with </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>bb1
+&amp;bb2 roles</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+can view </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>only
+EEE branch records b New </b></font></font>
+</p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 1.82cm; margin-right: 2.26cm; margin-bottom: 0.06cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Button</font></font></p>
+<h1 style="text-indent: -0.02cm; margin-left: -0.01cm">Creation of
+Access Control Lists(Write ACL)</h1>
+<ol>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	New to create a new ACL(Write)</font></font></p></li>
+	<li><p style="line-height: 121%; margin-right: 2.26cm; margin-bottom: 0cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Enter
+	the following details: </font></font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Type:
+	record</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Operation:
+Write</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Name:
+u_institution_details</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Active:
+true</font></font></p>
+<ol start="3">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">In
+	the Requires role related list, add:</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bb3
+(custom role)</font></font></p>
+<ol start="4">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">No
+	need to add any Data condition</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 1.52cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Save
+	the ACL Record </font></font>
+	</p></li>
+</ol>
+<p style="text-indent: -0.02cm; margin-left: 0.84cm; margin-bottom: 0.46cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 13pt"><b>Verify
+:</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.89cm; margin-left: 2.12cm; margin-right: 14.61cm; margin-bottom: 0.05cm">
+●<font face="Arial, serif"><font size="3" style="font-size: 12pt">	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">User
+with </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>bb1
+&amp;bb2 &amp;bb3 roles</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+can view and edit the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>
+EEE branch records along with New </b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Button</font></font></p>
+<h1 style="text-indent: -0.02cm; margin-left: -0.01cm">Creation of
+Access Control Lists(Delete ACL)</h1>
+<ol>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Click
+	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>New</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	to create a new ACL(Delete)</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Enter
+	the following details: </font></font><font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Type:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	record</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.05cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Operation:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+Delete</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Name:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+u_institution_details</font></font></p>
+<p style="line-height: 110%; margin-bottom: 0.05cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Active:</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+true</font></font></p>
+<ol start="3">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">In
+	the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>Requires
+	role</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+	related list, add:</font></font></p></li>
+</ol>
+<p style="line-height: 110%; margin-bottom: 0.06cm">	<font face="Arial, serif"><font size="3" style="font-size: 12pt">○	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">bb4
+(custom role)</font></font></p>
+<ol start="4">
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 0.06cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">No
+	need to add any Data condition</font></font></p></li>
+	<li><p style="line-height: 110%; margin-right: 2.26cm; margin-bottom: 1.52cm">
+	<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Save
+	the ACL Record </font></font>
+	</p></li>
+</ol>
+<p style="text-indent: -0.02cm; margin-left: 0.84cm; margin-bottom: 0.46cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 13pt"><b>Verify
+:</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.89cm; margin-left: 2.09cm; margin-right: 14.68cm; margin-bottom: 0.06cm">
+●<font face="Arial, serif"><font size="3" style="font-size: 12pt">	</font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">Users
+with </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>bb1
+&amp;bb2 &amp;bb3&amp;bb4 roles</b></font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">
+can see, create and edit along with delete the </font></font><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt"><b>
+EEE  branch records.</b></font></font></p>
+<p style="text-indent: -0.02cm; margin-left: -0.01cm; margin-bottom: 0.42cm">
+<font face="Times New Roman, serif"><font size="4" style="font-size: 14pt"><b>Outcome:</b></font></font></p>
+<p style="line-height: 110%; text-indent: -0.02cm; margin-left: 0.02cm; margin-right: 2.26cm; margin-bottom: 0.06cm">
+<font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">By
+completing this lab, learners gain a comprehensive understanding of
+how script-controlled READ, WRITE, CREATE, and DELETE ACLs enforce
+record-level security, how user roles and record field values are
+evaluated together to make access decisions, and how ACLs protect
+sensitive data from unauthorized viewing, modification, creation, and
+deletion across forms, lists, and Service Portal interfaces.</font></font></p>
+</body>
+</html>
